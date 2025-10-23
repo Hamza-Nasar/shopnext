@@ -34,7 +34,7 @@ export default function Login() {
             if (!res.ok) {
                 toast.error(data.message || "Invalid credentials");
             } else {
-                document.cookie = `token=${data.token}; path=/;`;
+                localStorage.setItem("token", data.token);
                 toast.success("Login successful!");
                 router.push("/dashboard");
             }
